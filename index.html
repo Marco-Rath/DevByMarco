@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Rath — Full Stack Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="images/carnet.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/styless.css" />
+
+
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="noise-overlay"></div>
+  <div id="progress-bar"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>MR<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about"    class="nav-link" data-text="Sobre mí">Sobre mí</a></li>
+        <li><a href="#skills"   class="nav-link" data-text="Habilidades">Habilidades</a></li>
+        <li><a href="#projects" class="nav-link" data-text="Proyectos">Proyectos</a></li>
+        <li><a href="#contact"  class="nav-link" data-text="Contacto">Contacto</a></li>
+      </ul>
+      <button id="menu-toggle" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobile-menu">
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="hero-grid">
+      <div class="hero-avatar-wrap">
+        <div class="avatar-glow-ring"></div>
+        <div class="avatar-glow-ring ring2"></div>
+        <div class="avatar-frame">
+          <img src="images/imagen2.png" alt="Marco Rath" class="avatar-img" />
+        </div>
+        <div class="badge badge-react">🅰 Angular</div>
+        
+        <div class="badge badge-node">⬡ Node.js</div>
+        <div class="badge badge-ts">Ts TypeScript</div>
+      </div>
+
+      <div class="hero-text">
+        <p class="hero-eyebrow">Hola, soy</p>
+        <h1 class="hero-name">Marco<br /><span class="name-accent">Rath</span></h1>
+        <p class="hero-role">
+          <span class="role-prefix">// </span>
+          <span id="typewriter"></span><span class="cursor-blink">|</span>
+        </p>
+        <p class="hero-bio">
+          Apasionado por crear experiencias web únicas y escalables.
+          Especializado en Angular, Spring Boot, .NET y Android con más de 1 año de experiencia.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">
+            <span>Ver Proyectos</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline">Contactar</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/marco-rath" target="_blank" class="social-icon" aria-label="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/marco-antonio-rath-chipani-016681344/" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/marcoant7692/" target="_blank" class="social-icon" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:211192@unamba.edu.pe" class="social-icon" aria-label="Email">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label">01 — Sobre mí</div>
+      <h2 class="section-title">Quién <span class="text-glow">Soy</span></h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Soy un desarrollador web full stack con más de <strong>1 año de experiencia</strong> en la creación de aplicaciones web modernas y escalables. Mi pasión por la tecnología y el diseño me impulsa a estar siempre aprendiendo y mejorando.</p>
+          <p>Me especializo en el desarrollo <em>front-end con Angular</em> y <em>back-end con Spring Boot y .NET</em>, con experiencia en APIs RESTful, microservicios y bases de datos SQL y NoSQL.</p>
+          <p>También desarrollo aplicaciones móviles <em>Android</em> y disfruto construir soluciones completas, desde la interfaz hasta la infraestructura.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-unit">+</span>
+            <p class="stat-label">Años de Experiencia</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="12">0</span>
+            <span class="stat-unit">+</span>
+            <p class="stat-label">Proyectos Completados</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="15">0</span>
+            <span class="stat-unit">+</span>
+            <p class="stat-label">Tecnologías Dominadas</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="100">0</span>
+            <span class="stat-unit">%</span>
+            <p class="stat-label">Dedicación</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ SKILLS ══ -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label">02 — Habilidades</div>
+      <h2 class="section-title">Mi <span class="text-glow">Stack</span></h2>
+
+      <div class="skills-categories" id="skills-categories">
+
+        <!-- 🌐 Frontend -->
+        <div class="skill-category-card" style="--cat-clr:#61dafb44">
+          <div class="cat-header">
+            <span class="cat-emoji">🌐</span>
+            <span class="cat-title">Frontend</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-icons">
+            <div class="skill-icon-item" data-label="Angular">
+              <img src="https://skillicons.dev/icons?i=angular" alt="Angular" />
+            </div>
+            <div class="skill-icon-item" data-label="HTML5">
+              <img src="https://skillicons.dev/icons?i=html" alt="HTML5" />
+            </div>
+            <div class="skill-icon-item" data-label="CSS3">
+              <img src="https://skillicons.dev/icons?i=css" alt="CSS3" />
+            </div>
+            <div class="skill-icon-item" data-label="TypeScript">
+              <img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" />
+            </div>
+            <div class="skill-icon-item" data-label="JavaScript">
+              <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" />
+            </div>
+            <div class="skill-icon-item" data-label="Bootstrap">
+              <img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" />
+            </div>
+            <div class="skill-icon-item" data-label="Tailwind CSS">
+              <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ⚙️ Backend -->
+        <div class="skill-category-card" style="--cat-clr:#6db33f44">
+          <div class="cat-header">
+            <span class="cat-emoji">⚙️</span>
+            <span class="cat-title">Backend</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-icons">
+            <div class="skill-icon-item" data-label=".NET">
+              <img src="https://skillicons.dev/icons?i=dotnet" alt=".NET" />
+            </div>
+            <div class="skill-icon-item" data-label="Spring Boot">
+              <img src="https://skillicons.dev/icons?i=spring" alt="Spring Boot" />
+            </div>
+            <div class="skill-icon-item" data-label="Node.js">
+              <img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" />
+            </div>
+            <div class="skill-icon-item" data-label="Java">
+              <img src="https://skillicons.dev/icons?i=java" alt="Java" />
+            </div>
+            <div class="skill-icon-item" data-label="C#">
+              <img src="https://skillicons.dev/icons?i=cs" alt="C#" />
+            </div>
+            <div class="skill-icon-item" data-label="PHP">
+              <img src="https://skillicons.dev/icons?i=php" alt="PHP" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 📱 Mobile -->
+        <div class="skill-category-card" style="--cat-clr:#3ddc8444">
+          <div class="cat-header">
+            <span class="cat-emoji">📱</span>
+            <span class="cat-title">Mobile</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-icons">
+            <div class="skill-icon-item" data-label="Android Studio">
+              <img src="https://skillicons.dev/icons?i=androidstudio" alt="Android Studio" />
+            </div>
+            <div class="skill-icon-item" data-label="Java">
+              <img src="https://skillicons.dev/icons?i=java" alt="Java" />
+            </div>
+            <div class="skill-icon-item" data-label="Kotlin">
+              <img src="https://skillicons.dev/icons?i=kotlin" alt="Kotlin" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 🗄️ Bases de Datos & Cloud -->
+        <div class="skill-category-card" style="--cat-clr:#336791aa">
+          <div class="cat-header">
+            <span class="cat-emoji">🗄️</span>
+            <span class="cat-title">Databases &amp; Cloud</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-icons">
+            <div class="skill-icon-item" data-label="PostgreSQL">
+              <img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" />
+            </div>
+            <div class="skill-icon-item" data-label="MySQL">
+              <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" />
+            </div>
+            <div class="skill-icon-item" data-label="MongoDB">
+              <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" />
+            </div>
+            <div class="skill-icon-item" data-label="Redis">
+              <img src="https://skillicons.dev/icons?i=redis" alt="Redis" />
+            </div>
+            <div class="skill-icon-item" data-label="Azure">
+              <img src="https://skillicons.dev/icons?i=azure" alt="Azure" />
+            </div>
+            <!-- SQL Server badge especial -->
+            <span class="skill-badge-special" title="SQL Server">
+              <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="SQL Server" />
+              SQL Server
+            </span>
+          </div>
+        </div>
+
+        <!-- 🔧 Tools & DevOps — ancho completo -->
+        <div class="skill-category-card skill-category-card--wide" style="--cat-clr:#f0503244">
+          <div class="cat-header">
+            <span class="cat-emoji">🔧</span>
+            <span class="cat-title">Tools &amp; DevOps</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-icons">
+            <div class="skill-icon-item" data-label="Git">
+              <img src="https://skillicons.dev/icons?i=git" alt="Git" />
+            </div>
+            <div class="skill-icon-item" data-label="GitHub">
+              <img src="https://skillicons.dev/icons?i=github" alt="GitHub" />
+            </div>
+            <div class="skill-icon-item" data-label="Docker">
+              <img src="https://skillicons.dev/icons?i=docker" alt="Docker" />
+            </div>
+            <div class="skill-icon-item" data-label="VS Code">
+              <img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" />
+            </div>
+            <div class="skill-icon-item" data-label="Linux">
+              <img src="https://skillicons.dev/icons?i=linux" alt="Linux" />
+            </div>
+            <div class="skill-icon-item" data-label="Postman">
+              <img src="https://skillicons.dev/icons?i=postman" alt="Postman" />
+            </div>
+            <div class="skill-icon-item" data-label="IntelliJ IDEA">
+              <img src="https://skillicons.dev/icons?i=idea" alt="IntelliJ IDEA" />
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /skills-categories -->
+    </div>
+  </section>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">03 — Proyectos</div>
+    <h2 class="section-title">Mi <span class="text-glow">Trabajo</span></h2>
+
+    <div class="projects-grid">
+
+      <!-- 01 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="images/1.png" alt="ProyectFollowUp" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/ProyectFollowUp" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">01</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">ProyectFollowUp</h3>
+          <p class="project-desc">Aplicación para seguimiento de tareas/proyectos con dashboard y filtros para gestionar avances.</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#61dafb">Fullstack</span>
+            <span class="tag" style="--tc:#6db33f">Tracking</span>
+            <span class="tag" style="--tc:#336791">Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="project-card project-card--featured">
+        <div class="project-img-wrap">
+          <img src="images/2.png" alt="TraditionalCustomber" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/TraditionalCustomber" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">02</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">TraditionalCustomber</h3>
+          <p class="project-desc">Sistema tradicional de gestión de clientes/ventas pensado para comercios pequeños.</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#512bd4">Backend</span>
+            <span class="tag" style="--tc:#3ddc84">Clientes</span>
+            <span class="tag" style="--tc:#47a248">Ventas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="project3.jpg" alt="storeshopings" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/storeshopings" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">03</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">storeshopings</h3>
+          <p class="project-desc">Tienda online con catálogo, carrito y flujo básico de compras — ideal como demo de e-commerce.</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#68a063">E-commerce</span>
+            <span class="tag" style="--tc:#38bdf8">Catálogo</span>
+            <span class="tag" style="--tc:#fff">Carrito</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="project4.jpg" alt="MicaelaBlogLife" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/MicaelaBlogLife" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">04</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">MicaelaBlogLife</h3>
+          <p class="project-desc">Blog personal con CMS sencillo para crear y administrar publicaciones y categorías.</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#dd0031">Blog</span>
+            <span class="tag" style="--tc:#6db33f">CMS</span>
+            <span class="tag" style="--tc:#336791">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="project5.jpg" alt="ProyectVideoGames" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/ProyectVideoGames" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">05</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">ProyectVideoGames</h3>
+          <p class="project-desc">Portal de videojuegos con listado, detalles y sistema de valoración para cada título.</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#f7df1e">Catalog</span>
+            <span class="tag" style="--tc:#6db33f">Ratings</span>
+            <span class="tag" style="--tc:#336791">UI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="project6.jpg" alt="ProductsGarageBackendCloudenary" />
+          <div class="project-overlay">
+            <a href="https://github.com/Marco-Rath/ProductsGarageBackendCloudenary" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Ver Proyecto →
+            </a>
+          </div>
+          <span class="project-num">06</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">ProductsGarageBackendCloudenary</h3>
+          <p class="project-desc">Backend para gestión de productos con subida y almacenamiento de imágenes en servicio cloud (Cloudinary / similar).</p>
+          <div class="project-tags">
+            <span class="tag" style="--tc:#61dafb">API</span>
+            <span class="tag" style="--tc:#6db33f">Cloud</span>
+            <span class="tag" style="--tc:#336791">Storage</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label">04 — Contacto</div>
+      <h2 class="section-title">Hablemos <span class="text-glow">Pronto</span></h2>
+      <p class="contact-subtitle">¿Tienes un proyecto en mente? Encuéntrame en mis redes sociales o escríbeme directamente.</p>
+
+      <div class="contact-cards">
+        <a href="https://github.com/marco-rath" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="--cc:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <span class="contact-card-label">GitHub</span>
+          <span class="contact-card-sub">@marco-rath</span>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+        <a href="https://www.linkedin.com/in/marco-antonio-rath-chipani-016681344/" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="--cc:#0a66c2">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <span class="contact-card-label">LinkedIn</span>
+          <span class="contact-card-sub">Marco Rath</span>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+        <a href="https://www.instagram.com/marcoant7692/" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="--cc:#e1306c">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <span class="contact-card-label">Instagram</span>
+          <span class="contact-card-sub">@marcoant7692</span>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+        <a href="mailto:211192@unamba.edu.pe" class="contact-card">
+          <div class="contact-card-icon" style="--cc:#00d4ff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-sub">211192@unamba.edu.pe</span>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">&lt;MR /&gt;</span>
+      <p class="footer-copy">© 2026 Marco Rath — Diseñado & Desarrollado con ❤</p>
+      <a href="#hero" class="back-top" aria-label="Volver arriba">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+
+</body>
+</html>
