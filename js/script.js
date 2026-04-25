@@ -414,3 +414,37 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.skill-category-card').forEach(card => {
       observer.observe(card);
     });
+
+
+     // Wrapped in block scope to avoid conflicts with script.js variables
+    {
+      // Timeline reveal animation
+      const timelineObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, i * 200);
+            timelineObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        timelineObs.observe(item);
+      });
+
+      // Skills category cards reveal
+      const skillCatObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            skillCatObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('.skill-category-card').forEach(card => {
+        skillCatObs.observe(card);
+      });
+    }
