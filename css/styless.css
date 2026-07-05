@@ -336,7 +336,7 @@ section {
 }
 .badge-react  { top: 10%;  right: -10px; color:#ff8097; border-color: rgba(221,0,49,.35); animation-delay: 0s; }
 .badge-node   { bottom: 12%; left: -20px; color:#90d45a; border-color: rgba(109,179,63,.35); animation-delay: -.8s; }
-.badge-ts     { top: 62%; right: -30px; color:#c8d8e8; border-color: rgba(200,216,232,.18); animation-delay: -1.5s; }
+.badge-ts     { top: 62%; right: -30px; color:#48e169; border-color: rgba(200,216,232,.18); animation-delay: -1.5s; }
 
 @keyframes badgeFloat {
   0%, 100% { transform: translateY(0); }
