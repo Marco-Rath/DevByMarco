@@ -88,7 +88,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────────────────────────
-     6. CANVAS PARTICLE FIELD
+     6. PROJECT MODAL
+  ───────────────────────────────────────────────────────────── */
+  const projectModals = document.querySelectorAll('.project-modal');
+  const modalTriggers = document.querySelectorAll('[data-project-modal]');
+  const modalClosers = document.querySelectorAll('[data-close-modal]');
+
+  const openProjectModal = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    projectModals.forEach(item => item.classList.remove('is-open'));
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProjectModal = () => {
+    projectModals.forEach(modal => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+    document.body.style.overflow = '';
+  };
+
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const modalId = trigger.getAttribute('data-project-modal');
+      if (modalId) openProjectModal(modalId);
+    });
+  });
+
+  modalClosers.forEach(closer => {
+    closer.addEventListener('click', e => {
+      e.stopPropagation();
+      closeProjectModal();
+    });
+  });
+
+  projectModals.forEach(modal => {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeProjectModal();
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeProjectModal();
+  });
+
+
+  /* ─────────────────────────────────────────────────────────────
+     7. CANVAS PARTICLE FIELD
   ───────────────────────────────────────────────────────────── */
   const canvas = document.getElementById('particles-canvas');
   const ctx    = canvas.getContext('2d');
@@ -448,3 +498,32 @@ document.addEventListener('DOMContentLoaded', () => {
         skillCatObs.observe(card);
       });
     }
+
+    const viewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+const closeViewer = document.getElementById("closeViewer");
+
+document.querySelectorAll(".zoom-img").forEach(img => {
+
+    img.onclick = function () {
+        viewer.style.display = "flex";
+        viewerImage.src = this.src;
+    };
+
+});
+
+closeViewer.onclick = function () {
+    viewer.style.display = "none";
+};
+
+viewer.onclick = function(e){
+    if(e.target === viewer){
+        viewer.style.display = "none";
+    }
+};
+
+document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"){
+        viewer.style.display="none";
+    }
+});

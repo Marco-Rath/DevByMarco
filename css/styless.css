@@ -716,6 +716,7 @@ section {
   font-weight: 600;
   backdrop-filter: blur(8px);
   transition: background .3s, transform .3s;
+  cursor: pointer;
 }
 .project-link-btn:hover { background: rgba(221,0,49,.28); transform: scale(1.05); }
 
@@ -734,6 +735,167 @@ section {
 }
 
 .project-info { padding: 1.6rem; }
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+.project-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.project-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 6, 12, .78);
+  backdrop-filter: blur(10px);
+}
+.project-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+  max-height: min(90vh, 900px);
+  overflow: auto;
+  border-radius: 30px;
+  background: rgba(10, 15, 28, .95);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  padding: 2rem;
+}
+.project-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.project-modal__close:hover {
+  background: rgba(221,0,49,.18);
+  transform: rotate(90deg);
+}
+.project-modal__header {
+  margin-bottom: 1.5rem;
+  padding-right: 3rem;
+}
+.project-modal__eyebrow {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #6DB33F;
+  margin-bottom: .4rem;
+}
+.project-modal__title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #fff;
+  margin-bottom: .7rem;
+}
+.project-modal__summary {
+  font-size: 1rem;
+  color: rgba(232,234,240,.72);
+  line-height: 1.75;
+  max-width: 760px;
+}
+.project-modal__content {
+  display: grid;
+  gap: 1.3rem;
+}
+.project-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.project-modal__figure {
+  display: grid;
+  gap: .6rem;
+}
+.project-modal__figure figcaption {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: .04em;
+}
+.project-modal__gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.project-modal__details {
+  display: grid;
+  gap: 1rem;
+}
+.project-modal__block {
+  padding: 1.1rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.project-modal__block h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: .6rem;
+}
+.project-modal__block p,
+.project-modal__block li {
+  color: rgba(232,234,240,.7);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+.project-modal__list {
+  padding-left: 1.1rem;
+  display: grid;
+  gap: .5rem;
+}
+.project-steps {
+  display: grid;
+  gap: .7rem;
+}
+.project-step {
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+  padding: .8rem .9rem;
+  border-radius: 14px;
+  background: rgba(109,179,63,.08);
+  border: 1px solid rgba(109,179,63,.16);
+}
+.project-step span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(221,0,49,.22);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.project-step strong {
+  display: block;
+  color: #fff;
+  margin-bottom: .25rem;
+}
 
 .project-title {
   font-family: 'Syne', sans-serif;
@@ -917,6 +1079,9 @@ section {
   .contact-cards { grid-template-columns: 1fr 1fr; }
 
   .section-title { font-size: 2rem; }
+  .project-modal__dialog { padding: 1.25rem; }
+  .project-modal__gallery { grid-template-columns: 1fr; }
+  .project-modal__header { padding-right: 0; }
 }
 
 @media (max-width: 480px) {
@@ -1365,7 +1530,6 @@ section {
     }
 
     /* ── section nav update ── */
-    .nav-link[data-section="experience"] {}
 
     /* ── Hero badge open to work ── */
     .open-badge {
@@ -1389,3 +1553,43 @@ section {
       background: #6DB33F;
       animation: pulse-dot 1.4s ease-in-out infinite;
     }
+
+    .zoom-img{
+    cursor:pointer;
+    transition:.3s;
+}
+
+.zoom-img:hover{
+    transform:scale(1.02);
+}
+
+#imageViewer{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.95);
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+#imageViewer img{
+    max-width:95%;
+    max-height:95%;
+    border-radius:10px;
+}
+
+#closeViewer{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+    user-select:none;
+}
+
+    

@@ -435,13 +435,13 @@
       <div class="projects-grid">
 
         <!-- 01 -->
-        <div class="project-card project-card--featured">
+        <div class="project-card project-card--featured" data-project-modal="project-modal-1">
           <div class="project-img-wrap">
             <img src="images/1.png" alt="Sistema de Gestión de Resoluciones Académicas" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-1">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">01</span>
           </div>
@@ -458,13 +458,13 @@
         </div>
 
         <!-- 02 -->
-        <div class="project-card">
+        <div class="project-card" data-project-modal="project-modal-2">
           <div class="project-img-wrap">
-            <img src="images/2.png" alt="App Bomberos Abancay" />
+            <img src="images/bombs.avif" alt="App Bomberos Abancay" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-2">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">02</span>
           </div>
@@ -481,13 +481,13 @@
         </div>
 
         <!-- 03 -->
-        <div class="project-card">
+        <div class="project-card" data-project-modal="project-modal-3">
           <div class="project-img-wrap">
-            <img src="images/1.png" alt="Visualización 3D Trajes Típicos Apurímac" />
+            <img src="images/2.png" alt="Visualización 3D Trajes Típicos Apurímac" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-3">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">03</span>
           </div>
@@ -575,6 +575,210 @@
       </div>
     </div>
   </section>
+
+  <div class="project-modal" id="project-modal-1" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-1" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 01 · 2025</p>
+        <h3 id="project-modal-title-1" class="project-modal__title">Gestión de Resoluciones Académicas</h3>
+        <p class="project-modal__summary">Sistema interno para gestionar documentos académicos, aprobar tesis, asignar jurados y llevar el seguimiento de cada trámite con control de estados y notificaciones.</p>
+      </div>
+
+      <div class="project-modal__content">
+        <div class="project-modal__gallery">
+          <h2>Vista del sistema de gestión académica(Login)</h2>
+          <img src="images/Proj1/py1.png" alt="Vista del sistema de gestión académica(Login)" />
+          <h2>Panel de seguimiento y gestión de documentos(Secretaria)</h2>
+          <img src="images/Proj1/py2.png" alt="Panel de seguimiento y gestión de documentos(Secretaria)" />
+            <h2>Panel de seguimiento y gestión de documentos(Decanatura)</h2>
+          <img src="images/Proj1/py3.png" alt="Panel de seguimiento y gestión de documentos(Decanatura)" />
+        </div>
+    <div id="imageViewer">
+    <span id="closeViewer">&times;</span>
+        <img id="viewerImage" src="">
+    </div>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Resumen del sistema</h4>
+            <p>La plataforma funciona como un sistema interno de gestión y seguimiento de documentos académicos para la UNAMBA. Permite controlar los trámites desde su registro hasta su procesamiento, con roles diferenciados para Secretaría Académica y Decanatura.</p>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Funciones principales</h4>
+            <ul class="project-modal__list">
+              <li>Registro de documentos con número, fecha, asunto, destinatario, correo y archivo adjunto.</li>
+              <li>Gestión de estados como pendiente y entregado.</li>
+              <li>Visualización de estadísticas generales de documentos registrados, entregados y pendientes.</li>
+              <li>Importación de documentos desde Excel y edición de registros ya existentes.</li>
+              <li>Notificaciones por correo al procesar documentos y cambio de credenciales de usuario.</li>
+            </ul>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Flujo del sistema</h4>
+            <div class="project-steps">
+              <div class="project-step">
+                <span>01</span>
+                <div>
+                  <strong>Ingreso por roles</strong>
+                  <p>Los usuarios acceden según su perfil para operar funcionalidades específicas.</p>
+                </div>
+              </div>
+              <div class="project-step">
+                <span>02</span>
+                <div>
+                  <strong>Registro y seguimiento</strong>
+                  <p>Se registran documentos y se mantienen actualizados con estados y observaciones.</p>
+                </div>
+              </div>
+              <div class="project-step">
+                <span>03</span>
+                <div>
+                  <strong>Procesamiento y notificaciones</strong>
+                  <p>El sistema avanza el trámite y comunica los cambios mediante correo electrónico.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-modal" id="project-modal-2" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-2" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 02 · 2025</p>
+        <h3 id="project-modal-title-2" class="project-modal__title">App de Gestión de Emergencias</h3>
+        <p class="project-modal__summary">Plataforma móvil y de backend para coordinar reportes de emergencia, asignar bomberos, monitorear ubicaciones en tiempo real y gestionar alertas desde distintos perfiles de usuario.</p>
+      </div>
+
+      <div class="project-modal__content">
+        <div class="project-modal__gallery">
+          <figure class="project-modal__figure">
+            <figcaption>Inicio y acceso por roles</figcaption>
+            <img src="images/Proj2/py21.png" alt="Pantalla principal de la app de emergencias" />
+          </figure>
+          <figure class="project-modal__figure">
+            <figcaption>Registro de emergencia con ubicación</figcaption>
+            <img src="images/Proj2/py22.png" alt="Registro de emergencia con ubicación GPS" />
+          </figure>
+          <figure class="project-modal__figure">
+            <figcaption>Panel del bombero en tiempo real</figcaption>
+            <img src="images/Proj2/py23.png" alt="Dashboard del bombero con mapa y asignaciones" />
+          </figure>
+          <figure class="project-modal__figure">
+            <figcaption>Adminitración y asignación de recursos</figcaption>
+            <img src="images/Proj2/py24.png" alt="Panel administrativo para asignar bomberos" />
+          </figure>
+        </div>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Resumen general</h4>
+            <p>La app está pensada para actuar como una herramienta de respuesta rápida ante emergencias, integrando GPS, mapas, reportes multimedia, notificaciones en tiempo real y roles diferenciados para usuarios, bomberos y administradores.</p>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Funcionalidades principales</h4>
+            <ul class="project-modal__list">
+              <li>Registro de emergencias con ubicación, severidad, fotos, audio y mensajes.</li>
+              <li>Seguimiento en vivo de bomberos y asignaciones mediante Firebase y Google Maps.</li>
+              <li>Login por código, contraseña y biometría para bomberos y administradores.</li>
+              <li>Panel administrativo para gestionar hidrantes, incidentes, usuarios y asignaciones.</li>
+              <li>Notificaciones por FCM para alertar a los equipos y actualizar estados en tiempo real.</li>
+            </ul>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Componentes clave</h4>
+            <div class="project-steps">
+              <div class="project-step">
+                <span>01</span>
+                <div>
+                  <strong>Usuario</strong>
+                  <p>Reporta emergencias, adjunta evidencia y envía su ubicación desde la app.</p>
+                </div>
+              </div>
+              <div class="project-step">
+                <span>02</span>
+                <div>
+                  <strong>Bombero</strong>
+                  <p>Recibe alertas, acepta asignaciones, confirma llegadas y gestiona su estado.</p>
+                </div>
+              </div>
+              <div class="project-step">
+                <span>03</span>
+                <div>
+                  <strong>Administrador</strong>
+                  <p>Visualiza incidentes, asocia personal y controla los recursos disponibles.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-modal" id="project-modal-3" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-3" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog project-modal__dialog--wide">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 03 · 2024</p>
+        <h3 id="project-modal-title-3" class="project-modal__title">Visualización 3D de Trajes Típicos de Apurímac</h3>
+        <p class="project-modal__summary">Sitio interactivo y cultural que presenta la identidad de Apurímac con imágenes, mapa regional y una zona pensada para un modelo 3D.</p>
+      </div>
+
+      <div class="project-modal__content project-modal__content--stacked">
+        <section class="project-modal__hero-panel">
+          <div class="project-modal__hero-copy">
+            <h4>Inicio del proyecto</h4>
+            <p>La experiencia se abre con una portada visual que introduce la región, los trajes típicos y la propuesta de un recorrido cultural en 3D.</p>
+          </div>
+          <div class="project-modal__hero-media">
+            <img src="images/Proj3/py31.png" alt="Inicio del proyecto de trajes típicos" />
+          </div>
+        </section>
+
+        <section class="project-modal__three-panel">
+          <figure class="project-modal__figure">
+            <figcaption>Diseño del espacio 3D</figcaption>
+            <img src="images/Proj3/py32.png" alt="Diseño del espacio 3D para trajes típicos" />
+          </figure>
+          <figure class="project-modal__figure">
+            <figcaption>Mapa de Apurímac</figcaption>
+            <img src="images/Proj3/py33.png" alt="Mapa de Apurímac y provincias" />
+          </figure>
+        </section>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Qué muestra este proyecto</h4>
+            <p>Una vista elegante y organizada que combina el inicio del recorrido, la ubicación geográfica y el diseño del área donde irá el modelo 3D. Ideal para exponer cultura y tecnología en un mismo panel.</p>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Secciones claves</h4>
+            <ul class="project-modal__list">
+              <li>Portada de inicio con enfoque cultural e identidad regional.</li>
+              <li>Galería visual donde se muestran el mapa y el diseño de la propuesta 3D.</li>
+              <li>Concepto para integrar una experiencia de modelo 3D en el sitio.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact">
