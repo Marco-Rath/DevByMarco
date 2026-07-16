@@ -504,43 +504,43 @@
         </div>
 
         <!-- 04 -->
-        <div class="project-card">
+        <div class="project-card" data-project-modal="project-modal-4">
           <div class="project-img-wrap">
-            <img src="images/2.png" alt="E-commerce Instrumentos Musicales" />
+            <img src="images/4.png" alt="E-commerce Instrumentos Musicales" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath/storeshopings" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-4">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">04</span>
           </div>
           <div class="project-info">
             <p class="project-year">2024 · E-commerce</p>
-            <h3 class="project-title">Plataforma E-commerce — Instrumentos Musicales</h3>
-            <p class="project-desc">Catálogo online, gestión de pedidos y panel admin para digitalización del negocio de venta de instrumentos musicales.</p>
+            <h3 class="project-title">Comercial Liliana — Tienda Virtual</h3>
+            <p class="project-desc">Sistema de comercio electrónico para gestionar productos, categorías, pedidos y pagos, con panel administrativo y experiencia de compra moderna.</p>
             <div class="project-tags">
-              <span class="tag" style="--tc:#dd0031">Angular</span>
+              <span class="tag" style="--tc:#dd0031">PHP</span>
               <span class="tag" style="--tc:#336791">MySQL</span>
-              <span class="tag" style="--tc:#6db33f">APIs REST</span>
+              <span class="tag" style="--tc:#6db33f">Stripe · Yape</span>
             </div>
           </div>
         </div>
 
         <!-- 05 -->
-        <div class="project-card">
+        <div class="project-card" data-project-modal="project-modal-5">
           <div class="project-img-wrap">
-            <img src="images/1.png" alt="Juego Educativo Historia del Perú" />
+            <img src="images/5.png" alt="Juego Educativo Historia del Perú" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-5">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">05</span>
           </div>
           <div class="project-info">
             <p class="project-year">2023 · Educativo</p>
-            <h3 class="project-title">Juego Educativo — Historia del Perú</h3>
-            <p class="project-desc">Aplicación web interactiva para niños sobre cronología histórica del Perú, desarrollada con Phaser y base de datos MySQL.</p>
+            <h3 class="project-title">Crónicas del Pasado — Perú</h3>
+            <p class="project-desc">Juego educativo en español sobre la Costa, Sierra y Selva del Perú, con lecturas, regiones, niveles y experiencia interactiva orientada a niños.</p>
             <div class="project-tags">
               <span class="tag" style="--tc:#f7df1e">Phaser</span>
               <span class="tag" style="--tc:#336791">MySQL</span>
@@ -550,23 +550,23 @@
         </div>
 
         <!-- 06 -->
-        <div class="project-card">
+        <div class="project-card" data-project-modal="project-modal-6">
           <div class="project-img-wrap">
-            <img src="images/2.png" alt="ProyectFollowUp" />
+            <img src="images/6.png" alt="Sistema de Seguimiento de Documentos Estudiantil" />
             <div class="project-overlay">
-              <a href="https://github.com/Marco-Rath/ProyectFollowUp" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                Ver Proyecto →
-              </a>
+              <button type="button" class="project-link-btn project-open-modal" data-project-modal="project-modal-6">
+                Ver Detalles →
+              </button>
             </div>
             <span class="project-num">06</span>
           </div>
           <div class="project-info">
             <p class="project-year">2024 · Personal</p>
-            <h3 class="project-title">ProyectFollowUp</h3>
-            <p class="project-desc">Aplicación para seguimiento de tareas y proyectos con dashboard y filtros avanzados para gestionar avances de equipos.</p>
+            <h3 class="project-title">Sistema de Seguimiento de Documentos Estudiantil</h3>
+            <p class="project-desc">Sistema para el seguimiento y gestión de documentos estudiantiles, permitiendo el control de trámites académicos con roles diferenciados y notificaciones automáticas.</p>
             <div class="project-tags">
-              <span class="tag" style="--tc:#61dafb">Fullstack</span>
-              <span class="tag" style="--tc:#6db33f">Dashboard</span>
+              <span class="tag" style="--tc:#61dafb">PHP</span>
+              <span class="tag" style="--tc:#6db33f">MySQL</span>
               <span class="tag" style="--tc:#336791">Tracking</span>
             </div>
           </div>
@@ -575,6 +575,11 @@
       </div>
     </div>
   </section>
+
+  <div id="imageViewer" aria-hidden="true">
+    <span id="closeViewer" aria-label="Cerrar vista ampliada">&times;</span>
+    <img id="viewerImage" src="" alt="Vista ampliada del proyecto" />
+  </div>
 
   <div class="project-modal" id="project-modal-1" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-1" aria-hidden="true">
     <div class="project-modal__backdrop" data-close-modal></div>
@@ -596,10 +601,6 @@
             <h2>Panel de seguimiento y gestión de documentos(Decanatura)</h2>
           <img src="images/Proj1/py3.png" alt="Panel de seguimiento y gestión de documentos(Decanatura)" />
         </div>
-    <div id="imageViewer">
-    <span id="closeViewer">&times;</span>
-        <img id="viewerImage" src="">
-    </div>
 
         <div class="project-modal__details">
           <div class="project-modal__block">
@@ -740,22 +741,20 @@
       </div>
 
       <div class="project-modal__content project-modal__content--stacked">
-        <section class="project-modal__hero-panel">
+        <section class="project-modal__hero-panel project-modal__hero-panel--full">
           <div class="project-modal__hero-copy">
             <h4>Inicio del proyecto</h4>
             <p>La experiencia se abre con una portada visual que introduce la región, los trajes típicos y la propuesta de un recorrido cultural en 3D.</p>
           </div>
-          <div class="project-modal__hero-media">
-            <img src="images/Proj3/py31.png" alt="Inicio del proyecto de trajes típicos" />
-          </div>
+          
         </section>
-
-        <section class="project-modal__three-panel">
-          <figure class="project-modal__figure">
+  <img src="images/Proj3/py31.png" alt="Inicio del proyecto de trajes típicos" />
+        <section class="project-modal__three-panel project-modal__three-panel--wide">
+          <figure class="project-modal__figure project-modal__figure--large">
             <figcaption>Diseño del espacio 3D</figcaption>
             <img src="images/Proj3/py32.png" alt="Diseño del espacio 3D para trajes típicos" />
           </figure>
-          <figure class="project-modal__figure">
+          <figure class="project-modal__figure project-modal__figure--large">
             <figcaption>Mapa de Apurímac</figcaption>
             <img src="images/Proj3/py33.png" alt="Mapa de Apurímac y provincias" />
           </figure>
@@ -778,6 +777,186 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="project-modal" id="project-modal-4" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-4" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog project-modal__dialog--wide">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 04 · 2024</p>
+        <h3 id="project-modal-title-4" class="project-modal__title">Comercial Liliana — Tienda Virtual</h3>
+        <p class="project-modal__summary">Tienda online completa con catálogo, carrito, checkout y panel administrativo. Implementada en PHP + MySQL, con soporte para pagos modernos.</p>
+      </div>
+
+      <div class="project-modal__content project-modal__content--stacked">
+        <section class="project-modal__hero-panel project-modal__hero-panel--large">
+          <div class="project-modal__hero-copy">
+            <h4>Resumen general</h4>
+            <p>Comercial Liliana permite ver productos, elegir categorías, agregar al carrito, realizar pagos (Yape, Stripe, Mercado Pago) y hacer seguimiento de pedidos.</p>
+          </div>
+       
+         
+        </section>
+          <img src="images/Proj4/py41.png" alt="Portada Comercial Liliana" />
+
+        <div class="project-modal__gallery project-modal__gallery--large">
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Página de categorías</figcaption>
+            <img src="images/Proj4/py42.png" alt="Categorías y filtros" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Ficha de producto</figcaption>
+            <img src="images/Proj4/py43.png" alt="Página de producto" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Carrito & Checkout</figcaption>
+            <img src="images/Proj4/py44.png" alt="Carrito y proceso de compra" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Panel administrador</figcaption>
+            <img src="images/Proj4/py45.png" alt="Panel administrativo" />
+          </figure>
+        </div>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Qué hace cada parte</h4>
+            <ul class="project-modal__list">
+              <li><strong>Página de inicio:</strong> portada, carrusel de destacados, categorías y productos recomendados.</li>
+              <li><strong>Páginas de categorías:</strong> listado por categoría con filtros por precio y orden.</li>
+              <li><strong>Página de producto:</strong> nombre, precio, descripción, imágenes y productos relacionados.</li>
+              <li><strong>Carrito y checkout:</strong> modificar cantidades, aplicar cupones y seleccionar método de pago.</li>
+              <li><strong>Panel admin:</strong> gestionar productos, categorías, pedidos, clientes y cupones.</li>
+            </ul>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Tecnologías</h4>
+            <p>Back-end en PHP con MySQL. Interfaces en HTML/CSS/JS. .</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-modal" id="project-modal-5" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-5" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog project-modal__dialog--wide">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 05 · 2023</p>
+        <h3 id="project-modal-title-5" class="project-modal__title">Crónicas del Pasado — Perú</h3>
+        <p class="project-modal__summary">Juego educativo interactivo en español que combina historia, lectura, regiones del Perú y navegación por niveles para una experiencia lúdica y formativa.</p>
+      </div>
+
+      <div class="project-modal__content project-modal__content--stacked">
+        <section class="project-modal__hero-panel project-modal__hero-panel--large">
+          <div class="project-modal__hero-copy">
+            <h4>Inicio del juego</h4>
+            <p>La experiencia inicia con una pantalla principal con botones de juego, opciones, salida y animaciones de hojas, partículas y regiones del Perú.</p>
+          </div>
+        </section>
+        <img src="images/Proj5/py51.png" alt="Pantalla inicial de Crónicas del Pasado" />
+        <div class="project-modal__gallery project-modal__gallery--large">
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Selección de región</figcaption>
+            <img src="images/Proj5/py52.png" alt="Selector de regiones Costa, Sierra y Selva" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Lecturas y narración</figcaption>
+            <img src="images/Proj5/py53.png" alt="Página de lectura del juego" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Niveles y retos</figcaption>
+            <img src="images/Proj5/py54.png" alt="Pantalla de niveles del juego" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Experiencia educativa</figcaption>
+            <img src="images/Proj5/py55.png" alt="Escena educativa del proyecto" />
+          </figure>
+        </div>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Qué incluye</h4>
+            <ul class="project-modal__list">
+              <li>Inicio con animaciones, fondo peruano y botones interactivos.</li>
+              <li>Selector de regiones: Costa, Sierra y Selva.</li>
+              <li>Navegación a niveles, lecturas y escenas temáticas.</li>
+              <li>Uso de Phaser, HTML, CSS y JavaScript para una experiencia educativa moderna.</li>
+            </ul>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Tecnologías utilizadas</h4>
+            <p>HTML, CSS, JavaScript y Phaser 3.88.2. El proyecto usa archivos como index.html, selectModo.html, Home.js, Select.js y varios JSON con historias y contenido educativo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-modal" id="project-modal-6" role="dialog" aria-modal="true" aria-labelledby="project-modal-title-6" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog project-modal__dialog--wide">
+      <button type="button" class="project-modal__close" aria-label="Cerrar modal" data-close-modal>×</button>
+
+      <div class="project-modal__header">
+        <p class="project-modal__eyebrow">Proyecto 06 · 2024</p>
+        <h3 id="project-modal-title-6" class="project-modal__title">Sistema de Seguimiento de Documentos Estudiantil</h3>
+        <p class="project-modal__summary">Plataforma para administrar trámites académicos con recepción, seguimiento y aprobación entre secretaría académica y decanatura, además de notificaciones por correo.</p>
+      </div>
+
+      <div class="project-modal__content project-modal__content--stacked">
+        <section class="project-modal__hero-panel project-modal__hero-panel--large">
+          <div class="project-modal__hero-copy">
+            <h4>Flujo del sistema</h4>
+            <p>El proceso empieza cuando la secretaría académica recibe un documento, lo registra y lo envía al área correspondiente. Luego, la decanatura revisa y aprueba o rechaza, generando la notificación al usuario.</p>
+          </div>
+         
+        </section>
+            <img src="images/Proj6/py61.png" alt="Dashboard de secretaría académica" />
+        <div class="project-modal__gallery project-modal__gallery--large">
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Formulario de envío de documentos</figcaption>
+            <img src="images/Proj6/py62.png" alt="Formulario de envío de documentos" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Dashboard de decanatura</figcaption>
+            <img src="images/Proj6/py63.png" alt="Dashboard de decanatura" />
+          </figure>
+          <figure class="project-modal__figure project-modal__figure--wide">
+            <figcaption>Correo de aceptación</figcaption>
+            <img src="images/Proj6/py64.png" alt="Correo de aceptación del documento" />
+          </figure>
+        </div>
+
+        <div class="project-modal__details">
+          <div class="project-modal__block">
+            <h4>Qué hace el sistema</h4>
+            <ul class="project-modal__list">
+              <li>Recepción y registro de documentos desde la secretaría académica.</li>
+              <li>Creación de resoluciones y envío de notificaciones al correo del usuario.</li>
+              <li>Seguimiento del estado del trámite desde la decanatura.</li>
+              <li>Aprobación o rechazo del documento y confirmación automática por correo.</li>
+            </ul>
+          </div>
+
+          <div class="project-modal__block">
+            <h4>Tecnologías</h4>
+            <p>PHP, MySQL y una arquitectura orientada a trámites académicos con roles diferenciados y notificaciones automáticas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageViewer" aria-hidden="true">
+    <span id="closeViewer" aria-label="Cerrar vista ampliada">&times;</span>
+    <img id="viewerImage" src="" alt="Vista ampliada del proyecto" />
   </div>
 
   <!-- CONTACT -->

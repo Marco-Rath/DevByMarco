@@ -831,12 +831,110 @@ section {
   color: #fff;
   letter-spacing: .04em;
 }
-.project-modal__gallery img {
+.project-modal__gallery img,
+.project-modal__hero-media img,
+.project-modal__gallery--large .project-modal__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  display: block;
+}
+
+/* HERO panel for modals */
+.project-modal__hero-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+.project-modal__hero-panel--large {
+  grid-template-columns: 1.2fr .8fr;
+}
+.project-modal__hero-copy h4 {
+  margin-bottom: .6rem;
+}
+.project-modal__hero-copy p {
+  color: rgba(232,234,240,.8);
+  line-height: 1.85;
+}
+.project-modal__hero-media {
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.project-modal__hero-media--large {
+  min-height: 340px;
+}
+.project-modal__hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 18px;
+}
+
+/* Gallery with multiple columns for larger modals */
+.project-modal__gallery--large {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.project-modal__gallery--large .project-modal__figure {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: .9rem;
+  padding: 1.25rem;
+  border-radius: 28px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 24px 60px rgba(0,0,0,.14);
+}
+.project-modal__gallery--large .project-modal__figure figcaption {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: none;
+  color: rgba(255,255,255,.96);
+  margin-bottom: 0;
+}
+.project-modal__gallery--large .project-modal__figure img {
+  width: 100%;
+  min-height: 290px;
+  object-fit: cover;
+  border-radius: 20px;
   border: 1px solid rgba(255,255,255,.08);
+  display: block;
+}
+
+/* Three-panel / multi-panel layout */
+.project-modal__three-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  .project-modal__gallery--large { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
+  .project-modal__three-panel { grid-template-columns: repeat(2, 1fr); }
+  .project-modal__hero-panel { grid-template-columns: 1.35fr .65fr; }
+}
+
+@media (max-width: 900px) {
+  .project-modal__hero-panel,
+  .project-modal__gallery--large,
+  .project-modal__three-panel { grid-template-columns: 1fr; }
+  .project-modal__hero-media { min-height: 220px; }
+}
+
+@media (max-width: 600px) {
+  .project-modal__hero-media { min-height: 180px; }
+  .project-modal__gallery--large { gap: 1rem; }
+  .project-modal__gallery--large .project-modal__figure { min-height: 220px; }
 }
 .project-modal__details {
   display: grid;
@@ -1554,42 +1652,47 @@ section {
       animation: pulse-dot 1.4s ease-in-out infinite;
     }
 
-    .zoom-img{
-    cursor:pointer;
-    transition:.3s;
+    .zoom-img {
+  cursor: zoom-in;
+  transition: transform .25s ease, filter .25s ease;
 }
 
-.zoom-img:hover{
-    transform:scale(1.02);
+.zoom-img:hover {
+  transform: scale(1.01);
+  filter: brightness(1.05);
 }
 
-#imageViewer{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.95);
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
+#imageViewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  padding: 2rem;
+  background: rgba(3, 6, 12, .97);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: auto;
 }
 
-#imageViewer img{
-    max-width:95%;
-    max-height:95%;
-    border-radius:10px;
+#imageViewer img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
 }
 
-#closeViewer{
-    position:absolute;
-    top:20px;
-    right:35px;
-    color:white;
-    font-size:50px;
-    cursor:pointer;
-    user-select:none;
+#closeViewer {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 100000;
 }
 
     

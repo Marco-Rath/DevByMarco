@@ -499,31 +499,43 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const viewer = document.getElementById("imageViewer");
-const viewerImage = document.getElementById("viewerImage");
-const closeViewer = document.getElementById("closeViewer");
+    const viewer = document.getElementById('imageViewer');
+    const viewerImage = document.getElementById('viewerImage');
+    const closeViewer = document.getElementById('closeViewer');
 
-document.querySelectorAll(".zoom-img").forEach(img => {
+    document.addEventListener('click', (event) => {
+      const img = event.target.closest('.project-modal img');
+      if (!img) return;
 
-    img.onclick = function () {
-        viewer.style.display = "flex";
-        viewerImage.src = this.src;
-    };
+      const modal = img.closest('.project-modal');
+      if (!modal || !modal.classList.contains('is-open')) return;
 
-});
+      event.stopPropagation();
+      viewer.style.display = 'flex';
+      viewer.setAttribute('aria-hidden', 'false');
+      viewerImage.src = img.src;
+      viewerImage.alt = img.alt || '';
+      document.body.style.overflow = 'hidden';
+    });
 
-closeViewer.onclick = function () {
-    viewer.style.display = "none";
-};
+    closeViewer.addEventListener('click', () => {
+      viewer.style.display = 'none';
+      viewer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
 
-viewer.onclick = function(e){
-    if(e.target === viewer){
-        viewer.style.display = "none";
-    }
-};
+    viewer.addEventListener('click', (e) => {
+      if (e.target === viewer) {
+        viewer.style.display = 'none';
+        viewer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    });
 
-document.addEventListener("keydown",function(e){
-    if(e.key==="Escape"){
-        viewer.style.display="none";
-    }
-});
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        viewer.style.display = 'none';
+        viewer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    });
